@@ -10,10 +10,8 @@ def home():
 @app.route("/bmi", methods=["POST"])
 def bmi():
     data = request.get_json()
-    print(data)
     try:
         result = calculate_bmi(data["height"], data["weight"])
-        print(f"result = {result}")
         if (bmi == 0):
             return jsonify({"error": "Values are incorrect. Height must be in m, weight in kg"}), 400
         return jsonify({"operation": "bmi", "result": result})
