@@ -13,12 +13,16 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        make init
 
-    - name: Run tests
-      run:
-        python -m unittest discover -s health-calculator-service/
+    - name: Run unittests
+      run: |
+        make test
+
+    - name: Build Docker image
+      run: |
+        make build
