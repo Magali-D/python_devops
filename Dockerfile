@@ -1,7 +1,6 @@
 FROM python:3.11-slim
 WORKDIR /app
-COPY health-calculator-service/ .
-COPY requirements.txt requirements.txt
+COPY . .
 RUN pip install -r requirements.txt
 EXPOSE 5000
 CMD ["python", "app.py"]
