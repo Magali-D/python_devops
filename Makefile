@@ -12,16 +12,16 @@ init:
 	pip install -r requirements.txt
 
 run:
-	source .venv/bin/activate && python3 health-calculator-service/app.py
+	source .venv/bin/activate && python3 app.py
 
 build:
 	docker build -t ${APP_NAME} .
 
 test:
-	source .venv/bin/activate && python3 health-calculator-service/test_utils.py
+	source .venv/bin/activate && python3 test_utils.py
 
 test-api:
-	source .venv/bin/activate && python3 health-calculator-service/test_api.py
+	source .venv/bin/activate && python3 test_api.py
 
 run-container:
 	docker run -d --name ${APP_NAME} -p ${PORT}:${PORT} ${APP_NAME}
